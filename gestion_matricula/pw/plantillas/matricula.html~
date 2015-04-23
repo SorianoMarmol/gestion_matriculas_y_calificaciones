@@ -1,0 +1,14 @@
+{% extends 'inicio.html' %}
+{% block titulo %} {{profesor.nombre}} {% endblock %}
+{% block encabezado %} 
+  <h1>Matriculaciones</h1>
+{% endblock %}
+{% block contenido %}
+	{% for item in mat %}
+		{% if  %}
+		<h2>{{mat.asignatura}}</h2>
+		<h4><a href='{% url "principal.views.detalle_alumno" mat.id %}'> {{mat.nombre}}</a></h4>
+	
+	{% endfor %}
+	
+{% endblock %}

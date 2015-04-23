@@ -1,0 +1,29 @@
+/* algunos ejemplos con CSS */
+body, header, footer, div, h1, h2, ul, li, a { 
+	margin:0; padding:0;
+}
+header {
+	background-color:#0B4E12;
+	color:#ffffff;
+}
+nav ul li a{
+	text-decoration:none;
+	color:#fff;
+	margin:10px;
+}
+nav ul li a:hover{
+	text-decoration:underline;
+	text-transform: uppercase;
+	font-weight:bold;
+	color:#000000
+}
+.activo { 
+  font-weight: bold; 
+
+}
+.impar { 
+	background-color:#90EE90; 
+}
+.par { 
+	background-color:#5ACC5A; 
+}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+<meta charset='utf-8'>
+  <title>Listado de usuarios</title>
+</head>
+<body>
+<ul>
+	{% for usuario in lista %}
+	<li>
+		<a href='{% url "principal.views.listaa_usuarios" usuario.id %}'>{{usuario.titulo}}</a>
+		<img src='{{MEDIA_URL}}{{usuario.imagen}}'>
+	</li>
+	{% empty %}
+	<li>Aún no hay usuarios registrados</li>
+	{% endfor %}
+</ul>
+
+
+</body>

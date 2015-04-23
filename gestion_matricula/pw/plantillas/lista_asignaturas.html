@@ -1,0 +1,25 @@
+{% extends 'inicio.html' %}
+{% block titulo %} Asignaturas registradas {% endblock %}
+
+{% block encabezado %} Asignaturas registradas {% endblock %}
+
+{% block contenido %}
+<ul>
+
+		<h3>Para mas detalles, haga click en la asignatura</h3>
+
+	{% for dato in datos %}
+	<li>
+		<h2> {{dato.id}}: <a href='{% url "principal.views.detalle_asignatura" dato.id %}'> {{dato.nombre}}</a></h2>
+		<h4>Carrera: {{dato.titulacion}}</h4>
+		<h4>Curso: {{dato.curso}}</h4>
+
+
+	</li>
+	{% empty %}
+	<li>Aún no hay asignaturas registradas</li>
+	{% endfor %}
+</ul>
+{% endblock %}
+
+

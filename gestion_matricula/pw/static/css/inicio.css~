@@ -1,0 +1,80 @@
+body, header, footer, div, h1, h2, ul, li, a { 
+	margin:0; padding:0;
+}
+header {
+	background-image:-moz-radial-gradient(20px 20px, circle farthest-side, pink 0%, red 90%);  
+	background-image:-webkit-radial-gradient(20px 20px, circle farthest-side, pink 0%, red 90%);  
+	background-image:-o-radial-gradient(20px 20px, circle farthest-side, pink 0%, red 90%); 
+	color:#0000FF;
+	font-size:110%
+	border:1px solid #CCC;
+
+}
+nav ul li a{
+	color:#fff;
+	margin:30px;
+	font-size:110%
+}
+nav ul li a:hover{
+	text-transform: uppercase;
+	font-weight:bold;
+	color:#000000
+}
+
+.activo { 
+  font-weight: bold; 
+
+}
+
+img { width:175px; 
+}
+a{
+	text-decoration:none;
+	color:#000000;
+}
+	a:link    {color:green;}
+	a:visited {color:red;}
+	a:hover   {color:blue;}
+	a:active  {color:yellow;} 
+a:hover{
+	text-transform: uppercase;
+	font-weight:bold;
+}
+footer{
+ 	clear: both;
+	background: #ccc;
+	position: relative; 
+	margin-top: 120px;  
+	text-align: center;
+	padding: 8px;
+	bottom:0;
+	height: 2%;
+
+}
+/* SIDEBAR */
+
+content-related h3 {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 3px;
+}
+
+content-related h4 {
+    font-size: 11px;
+}
+
+content-related .module h2 {
+    background: #eee url(../img/nav-bg.gif) bottom left repeat-x;
+    color: #666;
+}
+
+
+
+
+
+
+
+
+
+
+

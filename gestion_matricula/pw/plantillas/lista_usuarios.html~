@@ -1,0 +1,20 @@
+{% extends 'inicio.html' %}
+{% block titulo %} Alumnos registrados {% endblock %}
+
+{% block encabezado %}Alumnos registrados{% endblock %}
+
+{% block contenido %}
+<a href="/alumno/nuevo" style="color:#0174DF"> Agregar nuevo alumno</a>
+<ul>
+	{% for usuario in datos %}
+	<li>
+		<a href='{% url "principal.views.detalle_alumno" usuario.id %}'>{{usuario.nombre}}</a>
+	</li>
+	{% empty %}
+		<li>Aún no hay alumnos registrados</li>
+	{% endfor %}
+</ul>
+{% endblock %}
+
+
+ 

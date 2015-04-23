@@ -1,0 +1,12 @@
+{% extends 'inicio.html' %}
+{% block titulo %}Nuevo profesor{% endblock %}
+{% block encabezado %} 
+	<h1>Registrar nuevo profesor</h1>
+{% endblock %}
+{% block contenido %}
+<br>
+	<form id='formulario' method='post' enctype='multipart/form-data' action=''>{% csrf_token %}
+	    <table class='formTable'>{{form}}</table>
+		<p><input type='submit' value='Registrar'/></p>
+	</form>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'inicio.html' %}
+{% block titulo %} Profesores registrados {% endblock %}
+
+{% block encabezado %}Profesores registrados{% endblock %}
+
+{% block contenido %}
+
+<ul>
+	{% for calificacion in datos %}
+	<li>
+
+	</li>
+	{% empty %}
+		<li>Aún no hay calificaciones registradas</li>
+	{% endfor %}
+</ul>
+{% endblock %}
+
+
+ 

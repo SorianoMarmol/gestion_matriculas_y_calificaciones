@@ -1,0 +1,17 @@
+{% extends 'inicio.html' %}
+{% block titulo %} Listado matriculaciones realizadas {% endblock %}
+
+{% block encabezado %}Listado matriculaciones realizadas{% endblock %}
+
+{% block contenido %}
+<a href="/matricula/nuevo" style="color:#0174DF"> Matricúlate</a>
+<ul>
+	{% for mat in datos %}
+	<li>
+		<a href='{% url "principal.views.detalle_alumno" mat.id %}'>{{mat.nombre}}</a>
+	</li>
+	{% empty %}
+	<li>Aún no hay ninguna matriculacion hecha</li>
+	{% endfor %}
+</ul>
+{% endblock %}

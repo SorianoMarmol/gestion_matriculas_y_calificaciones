@@ -1,0 +1,21 @@
+{% extends 'inicio.html' %}
+{% block titulo %} {{profesor.nombre}} {% endblock %}
+{% block encabezado %} 
+  <h1>{{profesor.nombre}}</h1>
+{% endblock %}
+{% block contenido %}
+					{% if user.is_active and user.is_staff %}
+				<br><b>¿desea  modificar el profesor?: <a href="/editprofesor/{{profesor.id}}">si</a> 
+				<br><b>¿desea  eliminar el profesor?: <a href="/delprofesor/{{profesor.id}}">si</a> <br><b>
+									{% endif %}
+
+	<h2>{{profesor.nombre}}</h2>
+{% if user.is_active and user.is_staff %}
+	<h4>DNI: {{profesor.dni}}</h4>
+{% endif %}
+	<h4>e-mail: {{profesor.email}}</h4>
+{% if user.is_active and user.is_staff %}
+	<h4>Salario: {{profesor.salario}}</h4>
+	<h4>Titulación: {{profesor.titulo}}</h4>
+	<img src="{{MEDIA_URL}}{{profesor.imagen}}" ALT="Foto no disponible">
+{% endblock %}

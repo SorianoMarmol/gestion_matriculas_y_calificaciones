@@ -1,0 +1,20 @@
+{% extends 'inicio.html' %}
+{% block titulo %} Profesores registrados {% endblock %}
+
+{% block encabezado %}Profesores registrados{% endblock %}
+
+{% block contenido %}
+<a href="/profesor/nuevo" style="color:#0174DF"> Agregar nuevo profesor</a>
+<ul>
+	{% for usuario in datos %}
+	<li>
+		<a href='{% url "principal.views.detalle_profesor" profesor.id %}'>{{usuario.nombre}}</a>
+	</li>
+	{% empty %}
+		<li>Aún no hay profesores registrados</li>
+	{% endfor %}
+</ul>
+{% endblock %}
+
+
+ 

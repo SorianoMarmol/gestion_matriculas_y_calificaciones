@@ -1,0 +1,33 @@
+{% extends 'inicio.html' %}
+{% block contenido %}
+
+
+{% if user.is_authenticated %}
+<br>
+		{% for calificacion in dato %}
+			{% if alumno.nombre == calificacion.alumno.nombre %}
+
+			<li>
+				<h2>   <a href='{% url "principal.views.detalle_alumno" alumno.id %}'></a> </a></h2>
+			Asignatura:<a href='{% url "principal.views.detalle_asignatura" calificacion.asignatura.id %}'> {{calificacion.asignatura}}</a></h2>
+				<h4>Fecha: {{calificacion.fecha}}</h4>
+				<h4>Convocatoria: {{calificacion.convocatoria}}</h4>
+				<h4>Nota: {{calificacion.nota}}</h4>
+			{% else %}
+				
+					<h4> NO TIENE PERMISO PARA VER LAS CALIFICACIONES DE ESTE ALUMNO</h4>
+			{% endif %}
+				
+		</li>
+		{% empty %}
+			<li>Aún no hay calificaciones registradas</li>
+		{% endfor %}
+
+			
+{% endif %}
+
+
+{% endblock %}
+
+
+ 

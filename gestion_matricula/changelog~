@@ -1,0 +1,28 @@
+
+modelo acabado (?)
+
+css cambiado
+
+
+añadido a settings.py
+MIDDLEWARE_CLASSES = (
+   
+    'django.middleware.locale.LocaleMiddleware',
+ 
+)
+para detectar idioma (navegador en español)
+
+en admin.py cambios
+
+
+IMPORTANTE
+variable de sesion en login
+	            request.session['email'] = USER.email
+			y en vista para matriculate
+
+calificaciones! y calificaciones PRIVADAS!
+	MUCHO ESFUERZO EL ACCESO DIRECTO
+		NOTA: SI TE LOGUEAS DESDE ADMIN, NO CAPTURA LA VARIABLE DE SESION Y NO SE PUEDEN VER LAS CALIFICACIONES
+
+
+

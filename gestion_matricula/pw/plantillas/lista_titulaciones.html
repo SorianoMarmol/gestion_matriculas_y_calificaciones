@@ -1,0 +1,20 @@
+{% extends 'inicio.html' %}
+{% block titulo %} Profesores registrados {% endblock %}
+
+{% block encabezado %}Profesores registrados{% endblock %}
+
+{% block contenido %}
+
+<ul>
+	{% for titulacion in datos %}
+	<li>
+		<a href='{% url "principal.views.detalle_titulacion" titulacion.id %}'>{{titulacion.nombre}}</a>
+	</li>
+	{% empty %}
+		<li>Aún no hay titulaciones registradas</li>
+	{% endfor %}
+</ul>
+{% endblock %}
+
+
+ 

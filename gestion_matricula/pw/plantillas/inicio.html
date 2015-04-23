@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet"  href='{{STATIC_URL}}css/bootstrap.min.css'>
+        <style>
+            body {
+                padding-top: 50px;
+                padding-bottom: 20px;
+            }
+        </style>
+        <link rel="stylesheet" href='{{STATIC_URL}}css/bootstrap-theme.min.css'>
+        <link rel="stylesheet" href='{{STATIC_URL}}css/main.css'>
+
+        <script src='{{STATIC_URL}}js/vendor/modernizr-2.6.2-respond-1.1.0.min.js'></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+
+          <a class="navbar-brand" href='/'>Aplicación de gestión de matriculación y calificación</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+		{% if user.is_authenticated %}
+            <li class="active"><a href='/'>Bienvenido {{user.username}}</a></li>
+            <li><a href='/users/logout'>Logout</a></li>
+
+		{% else %}
+            <li><a href='/users/login'>Acceso Usuarios</a></li>	 
+            <li><a href='/users/new'>Nuevo Usuario</a></li>	 	
+		{% endif %}
+            <li ><a href='/'>Inicio</a></li>
+			{% if alumno.id != None %}
+            <li><a href='{% url "principal.views.calificaciones_privadas" alumno.id  %}'style="color:RED">Sus calificaciones</a></li>
+			{% endif %}	
+            <li><a href='/titulaciones'>Titulaciones</a></li>
+            <li><a href='/asignaturas'>Asignaturas</a></li>
+
+		{% if user.is_authenticated %}
+		<li><a href="/alumno/nuevo" style="color:#0174DF">Matrículate</a></li>
+		{% endif %}
+            <li><a href="/contacto">Contacto</a></li>
+            <li><a href='/admin'>Acceso admin</a></li>
+		{% if user.is_active and user.is_staff %}
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administración <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+
+		        <li><a href='/alumnos'>Alumnos registrados</a></li>
+		        <li><li><a href='/profesores'>Docentes</a></li>
+            		<li><a href='/users/list'>Lista Usuarios</a></li>
+            		<li><a href='/calificaciones'>Calificaciones</a></li>	 
+
+              </ul>
+            </li>
+		{% endif %}
+          </ul>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        {% block contenido %}
+	{% if user.is_authenticated %}
+            Bienvenido ({{user.username}})
+            <li><a href='/users/logout'>Salir de la sesión</a></li>
+			{% if alumno.id != None %}
+            <li><a href='{% url "principal.views.calificaciones_privadas" alumno.id  %}'style="color:RED">Consulte sus calificaciones</a></li>
+			{% endif %}	 
+		{% else %}
+	<h2>Acceso Usuarios</h2>
+
+	<form id='form' method='post' action=''>{% csrf_token %}
+	    <table class='formTable'>{{form}}</table>
+		<p><input type='submit' value='Login'></p>
+	</form>
+            <li><a href='/users/new'>Nuevo Usuario</a></li>	 	
+		{% endif %}
+
+ 
+		{% if user.is_authenticated and alumno.id == None %}
+		<li><a href="/alumno/nuevo" style="color:#0174DF">Matrículate</a></li>
+		{% endif %}
+            <li><a href="/contacto">Contacto</a></li>
+	{% endblock %}
+      </div>
+    </div>
+
+   <footer>
+	<p> Aplicación de gestión de matriculación y calificación</p>
+	<p> Rafael Carlos Soriano Mármol.</p>
+	<p> i02somar@uco.es </p>
+  </footer>
+    </div> <!-- /container -->        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src={{STATIC_URL}}js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+
+        <script src='{{STATIC_URL}}js/vendor/bootstrap.min.js'></script>
+
+        <script src='{{STATIC_URL}}js/main.js'></script>
+
+        <script>
+            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src='//www.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+    </body>
+</html>

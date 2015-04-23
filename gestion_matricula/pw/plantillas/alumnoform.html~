@@ -1,0 +1,32 @@
+{% extends 'inicio.html' %}
+{% block titulo %}Nuevo alumno{% endblock %}
+{% block encabezado %} 
+	<h1>Registrar nuevo alumno</h1>
+{% endblock %}
+{% block contenido %}
+
+{% if user.is_authenticated %}
+		
+ <br>
+
+			{% if request.session.email == alumno.email %}
+
+				Usted ya se encuentra matriculado.  <br>
+Si desea modificar su matrícula, acuda a la secretaría de su centro o utilice el formulario de contacto
+
+			{% else %}
+
+Nota: Debe utilizar el mismo email que el utilizado para el usuario
+ <br> <br>
+
+				<form id='formulario' method='post' enctype='multipart/form-data' action=''>{% csrf_token %}
+	    <table class='formTable'>{{formulario}}</table>
+		<p><input type='submit' value='Matricular'/></p>
+	</form>
+
+			{% endif %}
+ 
+{% endif %}
+
+
+{% endblock %}

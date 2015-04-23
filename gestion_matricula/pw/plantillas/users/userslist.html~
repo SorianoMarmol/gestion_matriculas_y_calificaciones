@@ -1,0 +1,13 @@
+{% extends 'inicio.html' %}
+
+{% block contenido %}
+	{% for user in userList %}
+		{{user.first_name}} {{user.last_name}} ({{user.username}}) <a href="/users/delete/{{user.id}}"><img src='{{STATIC_URL}}icons/delete.png' alt=""/></a><br>
+	{% empty %}
+		<p>No hay usuarios disponibles.</p>
+	{% endfor %}
+{% endblock %}
+
+ 
+
+ 

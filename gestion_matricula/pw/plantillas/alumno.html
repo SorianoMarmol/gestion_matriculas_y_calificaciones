@@ -1,0 +1,37 @@
+{% extends 'inicio.html' %}
+{% block titulo %} {{alumno.nombre}} {% endblock %}
+{% block encabezado %} 
+	<h1>{{alumno.nombre}}</h1>
+{% endblock %}
+{% block contenido %}
+	<h2>{{alumno.nombre}}</h2>
+	<h4>DNI: {{alumno.dni}}</h4>
+	<h4>e-mail: {{alumno.email}}</h4>
+	<h4>Ciudad: {{alumno.ciudad}}</h4>
+	<h3>Titulacion matriculada: {{alumno.titulacion}}</h3>
+	<h4>Especialidad: {{alumno.especialidad}}</h4>
+	<h3>Asignaturas matriculadas: </h3>
+		{% for asignatura in alumno.asignaturas_matriculadas.all %}
+			<li>	<a href='{% url "principal.views.detalle_asignatura" asignatura.id %}'> {{asignatura}}</a>; Curso: {{ asignatura.curso }}</li>
+		{% empty %}
+			<li>Aún no se ha amtriculado de ninguna asignatura</li>
+		{% endfor %}
+	<h4>Fecha de matrícula: {{alumno.fecha_matricula}}</h4>
+	<img src="{{MEDIA_URL}}{{alumno.imagen}}" ALT="Foto no disponible">
+
+	<h3><b>CALIFICACIONES: </h3></b>
+
+	{% for calificacion in nota %}
+	<li>
+		<h2> {{calificacion.id}}:  
+	Asignatura:<a href='{% url "principal.views.detalle_asignatura" calificacion.asignatura.id %}'> {{calificacion.asignatura}}</a></h2>
+		<h4>Fecha: {{calificacion.fecha}}</h4>
+		<h4>Convocatoria: {{calificacion.convocatoria}}</h4>
+		<h4>Nota: {{calificacion.nota}}</h4>
+
+	</li>
+	{% empty %}
+		<li>Aún no hay calificaciones registradas</li>
+	{% endfor %}
+
+{% endblock %}

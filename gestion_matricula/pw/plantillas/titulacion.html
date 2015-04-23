@@ -1,0 +1,14 @@
+{% extends 'inicio.html' %}
+{% block titulo %} {{dato.nombre}} {% endblock %}
+{% block encabezado %} 
+  <h1>{{dato.nombre}}</h1>
+{% endblock %}
+{% block contenido %}
+	<h2>{{dato.nombre}}</h2>
+	<h4>Tipo: {{dato.tipo}}</h4>
+	<h4>Facultad: {{dato.facultad}}</h4>
+	<h4>Especialidad: {{dato.especialidad}}</h4>
+ 
+ 
+ 
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'inicio.html' %}
+
+
+{% block contenido %}
+	<h2>Nuevo Usuario</h2>
+
+	<form id='form' method='post' enctype='multipart/form-data' action=''>{% csrf_token %}
+	    <table class='formTable'>{{form}}</table>
+		<p><input type='submit' value='Submit'></p>
+	</form>
+{% endblock %}

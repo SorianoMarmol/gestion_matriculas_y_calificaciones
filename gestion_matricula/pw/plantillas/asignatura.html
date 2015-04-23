@@ -1,0 +1,30 @@
+{% extends 'inicio.html' %}
+{% block titulo %} {{asignatura.nombre}} {% endblock %}
+
+{% block encabezado %} {{asignatura.nombre}}  {% endblock %}
+
+{% block contenido %}
+<ul>
+
+	<li>
+		<h2>Asignatura: <a href='{% url "principal.views.detalle_asignatura" dato.id %}'> {{dato.nombre}}</a></h2>
+		<h4></h2>
+		<h4>Carrera: {{dato.titulacion}}</h4>
+		<h4>Curso: {{dato.curso}}</h4>
+		<h4>Cuatrimestre: {{dato.cuatrimestre}}o</h4>
+		<h4>Tipo: {{dato.tipo}}</h4>
+		<h3>Profesores:</h3>
+		{%for docent in dato.docentes.all%}
+				<h4><a href='{% url "principal.views.detalle_profesor" docent.id %}'> {{docent}}</a></h4>
+		{% endfor %}
+		<h3>Aulas asignadas:</h3>
+		{%for aula in dato.aula.all%}
+					<h4>{{aula}}</h4>
+		{% endfor %}
+
+	</li>
+
+</ul>
+{% endblock %}
+
+
