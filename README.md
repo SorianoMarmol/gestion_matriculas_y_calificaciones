@@ -18,4 +18,5 @@ Optimización del panel de administración de Django,
 Se adjunta el manual técnico y de usuario, realizados también para la asignatura.
 
 Rafael Carlos Soriano Mármol
+
 SorianoMarmol@gmail.com
